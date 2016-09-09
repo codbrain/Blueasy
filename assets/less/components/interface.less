@@ -1,0 +1,125 @@
+//forms, buttons, dialogs etc.
+
+.horizontal-nav{
+	&:extend(.ul-unstyled);
+	li {
+		display: inline-block;
+		margin-left: 15px;
+
+		a {
+			.transition();
+			display: block;
+			border: 2px solid transparent;
+			color: #fff;
+			font-weight: 600;
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: 10px 17px;
+			line-height: 1;
+			&.active {
+				border-color: @accent;
+				color: @accent;
+			}
+			&:hover {
+				border-color: @accent;
+				color: @accent;
+			}
+
+		}
+	}
+
+	&.black-font a{
+		color: @font;
+	}
+}
+
+.btn-ghost(@c:#353f46, @c-hover:#fff, @font:1em) {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: @c;
+	border: 2px solid @c;
+	transition: all .3s ease-in-out;
+	padding: 1.07em 2.857em;
+	line-height: 1;
+	font-size: 1em;
+
+	&:hover {
+		text-decoration: none;
+		color: @c-hover;
+		border-color: @c-hover;
+	}
+}
+
+.btn-ghost-grey {
+	.btn-ghost();
+}
+
+.stn-twitter {
+	&:extend(.stn-padding);
+	background-color: @accent;
+	color: #fff;
+
+	p {
+		font-size: 2em;
+		font-weight: 300;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+}
+
+.main-nav-triger {
+	display: none;
+	font-size: 45px;
+	color: #fff;
+	float: right;
+	line-height: 1;
+	cursor: pointer;
+	transition: color .3s ease-in-out;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, sans-serif;
+	&:hover {
+		color: @accent;
+	}
+}
+
+//resopnsive
+
+@media (max-width: 992px) {
+
+	.main-nav-triger {
+		display: block;
+	}
+
+	.main-logo {
+		float: left;
+	}
+	.site-nav {
+		position: relative;
+	}
+
+	.site-nav .horizontal-nav {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: @overlay;
+		li {
+			width: 100%;
+			display: block;
+			margin-left: 0;
+			text-align: center;
+			border-bottom: 1px solid lighten(@overlay, 10%);
+		}
+		a {
+			display: inline-block;
+			padding: 15px;
+			&.active {
+				border-color: transparent;
+			}
+		}
+	}
+}
+
